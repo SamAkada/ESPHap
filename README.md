@@ -10,8 +10,5 @@ HomeKit Accessory Protocol (HAP) for Arduino Library.
 Relay_HAP.ino: Control Relay
 ENV_HAP.ino: Temptemperature&humidity
 
-## バグ
-湿度が変わらないです。Humidity does not change.
-
 ## 謝辞
 Many thanks to [Yurilk72](https://github.com/Yurik72)
