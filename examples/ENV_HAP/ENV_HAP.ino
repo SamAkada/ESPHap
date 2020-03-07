@@ -93,12 +93,10 @@ void setup() {
     set_callback_storage_change(storage_changed);
 
     hap_setbase_accessorytype(homekit_accessory_category_thermostat);
-    hap_initbase_accessory_service("Sensor","A-TEAM","0","HAP-ENV","1.0");
+    hap_initbase_accessory_service("Sensor","A-TEAM","123456","HAP-ENV","1.0");
 
-    //hapservice= hap_add_lightbulb_service("Led",led_callback,(void*)&led_gpio);
     temperature = hap_add_temperature_service("Temperature Sensor");
     humidity = hap_add_humidity_service("Humidity Sensor");
-    //hapservice = hap_add_temp_hum_as_accessory(homekit_accessory_category_thermostat,"Sensor",&temperature,&humidity);
         
    //and finally init HAP
     hap_init_homekit_server();
@@ -119,7 +117,7 @@ void loop() {
      ch->value.float_value=tmp;
      homekit_characteristic_notify(ch,ch->value);
      homekit_characteristic_t * ch2= homekit_service_characteristic_by_type(humidity, HOMEKIT_CHARACTERISTIC_CURRENT_RELATIVE_HUMIDITY);
-     ch->value.float_value=hum;
+     ch2->value.float_value=hum;
      homekit_characteristic_notify(ch2,ch2->value);
       
     delay(500);
